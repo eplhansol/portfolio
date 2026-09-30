@@ -78,7 +78,7 @@
           <button type="button" aria-current="true">프로젝트 검색</button><button type="button" disabled>실적 조회<small>데모 미포함</small></button>
           <button type="button" data-go="#p-intro">소개서 생성 ↓</button><button type="button" disabled>폴더 탐색<small>데모 미포함</small></button><button type="button" disabled>업로드<small>데모 미포함</small></button></div>
         <div class="nas-main">
-          <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px">${seg([['kw', '키워드 검색'], ['ai', 'AI에게 묻기']], 'kw', '검색 방식')}<span class="mini">인덱스 갱신 04:30</span></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px">${seg([['kw', '키워드 검색'], ['ai', 'AI에게 묻기']], 'kw', '검색 방식')}</div>
           <div data-kw>
             <label class="searchbox"><span class="k">⌕</span><input id="nas-q" type="search" autocomplete="off" aria-label="프로젝트 검색어"><button class="btn" type="button" data-run>검색</button></label>
             <div class="filters" data-f="year">${[['all', '전체 연도'], ['2026', '2026'], ['2025', '2025'], ['2024', '2024'], ['old', '~2023']].map(([v, l]) => `<button class="chip" type="button" data-v="${v}" aria-pressed="${v === 'all'}">${l}</button>`).join('')}</div>
@@ -104,18 +104,19 @@
       }
       const n = list.length, shown = st.more ? list.slice(0, 20) : list.slice(0, 6);
       const secs = (0.12 + ((st.q.length * 7) % 13) / 100).toFixed(2);
-      $('[data-meta]', body).innerHTML = `893개 프로젝트 · 파일 30만여 개 중 <b>${n}건</b> (${secs}초)`;
+      $('[data-meta]', body).innerHTML = `893개 프로젝트 · 파일 7만여 개 중 <b>${n}건</b>`;
       const hl = (s) => { let o = esc(s); toks.forEach((t) => { if (t.length < 1) return; o = o.replace(new RegExp(t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi'), (m) => `<mark>${m}</mark>`); }); return o; };
       $('[data-res]', body).innerHTML = shown.map((p) => `<li role="option" tabindex="0" data-code="${p.code}" aria-selected="${st.sel === p.code}"><span class="c">${hl(p.code)}</span><span class="n">${hl(p.name)}</span><span class="d">${p.date} · ${p.f}</span></li>`).join('')
         + (n > shown.length ? `<li data-more tabindex="0" role="button" style="grid-template-columns:1fr;justify-items:center;color:var(--fg-3);font-family:var(--mono);font-size:12px">${n}건 중 ${shown.length}건 표시 · 더 보기</li>` : '')
         + (n === 0 ? `<li style="grid-template-columns:1fr;cursor:default;color:var(--fg-2)">결과가 없습니다. 검색어를 줄이거나 연도 필터를 전체로 바꿔 보세요.</li>` : '');
+      if (st.sel && !shown.some((p) => p.code === st.sel)) st.sel = null;
       const sel = PROJ.find((p) => p.code === st.sel);
       $('[data-tree]', body).innerHTML = sel ? `<div class="tree"><div class="h">${esc(sel.code)} ${esc(sel.name)}</div>${['01_회의록', '02_제안', '03_설계', '04_제작', '05_현장사진', '06_완료'].map((f, i) => `├ ${f} <span style="color:var(--fg-3)">${Math.max(1, Math.round(sel.f * [0.06, 0.14, 0.22, 0.28, 0.24, 0.06][i]))}</span>`).join('<br>')}</div>` : '';
     };
     const ask = (text) => {
       const hit = RAG.find((r) => r.q === text) || RAG.find((r) => text && r.q.split(' ').filter((w) => w.length > 1 && text.includes(w)).length >= 2);
       const a = $('[data-a]', body), s = $('[data-src]', body);
-      const ans = hit ? hit.a : '이 데모는 가상 데이터라 위의 예시 질문 세 개에만 답합니다. 실제 시스템은 파일 30만여 건의 색인에서 근거 문서를 찾아 답합니다.';
+      const ans = hit ? hit.a : '이 데모는 가상 데이터라 위의 예시 질문 세 개에만 답합니다. 실제 시스템은 파일 7만여 건의 색인에서 근거 문서를 찾아 답합니다.';
       s.innerHTML = ''; a.textContent = ''; let i = 0; clearInterval(a._t);
       if (RM) { a.textContent = ans; if (hit) s.innerHTML = hit.s.map((x) => `<span>${esc(x)}</span>`).join(''); return; }
       a.setAttribute('aria-busy', 'true');
@@ -185,7 +186,7 @@
       $('[data-bar]', body).style.width = (filled / d.length) * 100 + '%';
       $('[data-cnt]', body).textContent = `${st.sel.size} / ${CASES.length}`;
       $('[data-status]', body).textContent = filled >= d.length ? `완성 · ${d.length}장 · 회사소개서_${['KO', 'EN', 'ZH', 'JA'][st.lang]}.pptx` : st.busy ? `슬라이드 채우는 중 ${filled} / ${d.length}` : `생성 버튼을 누르면 ${d.length}장을 채웁니다`;
-      $('[data-cache]', body).textContent = st.lang ? `번역 캐시 적중 ${Math.round((([...st.sel].filter((i) => i % 3 !== 2).length + 4) / (st.sel.size + 4)) * 100)}%` : '원문 · 번역 없음';
+      $('[data-cache]', body).textContent = st.lang ? '번역 캐시 사용' : '원문 · 번역 없음';
       $('[data-go]', body).disabled = st.busy || st.sel.size === 0;
     };
     const run = () => {
@@ -398,11 +399,11 @@
         <div class="kpi"><strong>128</strong><span>등록 협력사</span></div>
         <div class="kpi"><strong data-soon></strong><span>30일 안에 계약 만료</span></div>
         <div class="kpi"><strong>4.2억</strong><span>이번 분기 집행</span></div>
-        <div class="kpi"><strong>A·B·C</strong><span>4개 항목 평균으로 산정</span></div></div>
+        <div class="kpi"><strong>A·B·C</strong><span>항목별 점수로 자동 산정</span></div></div>
       <div style="padding:10px 18px 0" class="filters" data-kinds>${['전체', '시공', '출력 · 제작', '운송 · 설치', '임대'].map((k) => `<button class="chip" type="button" data-k="${k}" aria-pressed="${k === '전체'}">${k}</button>`).join('')}</div>
       <div class="scroll-x" style="padding:0 18px 16px"><table class="grid" style="min-width:600px"><thead><tr>
         <th>협력사</th><th>분류</th><th class="sortable" tabindex="0" data-s="avg">등급</th><th class="sortable" tabindex="0" data-s="d" aria-sort="ascending">계약 만료</th><th class="sortable num" tabindex="0" data-s="a">연 집행액</th></tr></thead><tbody data-rows></tbody></table>
-        <p class="mini" style="margin:10px 0 0">등급은 품질·납기·단가·대응 점수 평균으로 자동 산정합니다. 85점 이상 A, 72점 이상 B.</p></div>`);
+        <p class="mini" style="margin:10px 0 0">등급은 항목별 점수 평균으로 자동 산정합니다. 협력사·점수는 샘플 데이터입니다.</p></div>`);
     $('[data-soon]', body).textContent = P.filter((p) => p.d <= 30).length;
     const render = () => {
       const list = P.filter((p) => st.kind === '전체' || p.k === st.kind).sort((a, b) => (a[st.sort] - b[st.sort]) * st.dir);

@@ -643,7 +643,7 @@ p,li,small,figcaption,.try,.post b{text-wrap:pretty}
       <div class="chap"><em>Strategy · Business Planning</em><h3>비즈니스 구조화 및 사업 전략</h3>
         <p>이후 직무를 바꿔 공공입찰 제안과 신사업 기획을 전담했습니다. RFP(제안요청서)의 까다로운 조건을 분석해 비즈니스 모델로 구조화했던 경험 덕분에, 지금도 현업의 요구사항을 들으면 단순한 기능을 넘어 <b>비즈니스 임팩트를 낼 수 있는 개발 스펙(SPEC)</b>으로 빠르게 옮깁니다.</p></div>
       <div class="chap"><em>Management Planning · AX</em><h3>전사 AX 주도 및 엔지니어링</h3>
-        <p>현재는 경영기획부서에서 사내 AX 전환을 단독으로 이끌고 있습니다. AX 전담 조직이 없는 환경이라 오히려 제가 직접 <b>과제 발굴 → 요구사항 정의 → 직접 코딩 및 배포 → 전사 커뮤니티를 통한 확산</b>까지 인하우스 솔루션 개발의 전 과정을 처음부터 끝까지 맡고 있습니다.</p>
+        <p>현재는 경영기획부서에서 사내 AX를 단독으로 이끌고 있습니다. AX 전담 조직이 없는 환경이라 오히려 제가 직접 <b>과제 발굴 → 요구사항 정의 → 직접 코딩 및 배포 → 전사 커뮤니티를 통한 확산</b>까지 인하우스 솔루션 개발의 전 과정을 처음부터 끝까지 맡고 있습니다.</p>
         <p>도구를 만드는 데 그치지 않고, 조직이 도구를 실제로 쓰게 만드는 체인지 매니저로서 일하는 방식을 바꾸고 있습니다.</p></div>
     </div>
     <div class="quote">
@@ -675,7 +675,7 @@ p,li,small,figcaption,.try,.post b{text-wrap:pretty}
           <li>사명 변경 및 리브랜딩 PM</li></ul></div>
         <div><h4>홍보 · 마케팅</h4><ul>
           <li>월간 뉴스레터 제작 및 배포 (구독자&nbsp;2,000명 / 오픈율&nbsp;40%&nbsp;이상)</li>
-          <li>자사 홈페이지 리뉴얼, 사명 변경, 브랜딩 PM</li>
+          <li>자사 홈페이지 리뉴얼 PM</li>
           <li>자사 홈페이지 운영 (SEO, GA4 연동 등)</li>
           <li>보도자료 작성 및 배포, 전시회 개최 등 홍보 일체</li>
           <li>유튜브, 인스타그램 등 회사 SNS 채널 운영</li>
@@ -752,13 +752,13 @@ p,li,small,figcaption,.try,.post b{text-wrap:pretty}
         <p class="lead">팀마다 따로 쓰던 NAS 6대에 자료가 기준 없이 쌓여 있었습니다. 이대로는 RAG 검색을 붙여도 결과를 믿을 수 없어서, <b>데이터 정비를 AX의 첫 과제</b>로 잡았습니다.</p>
         <ul class="did">
           <li>팀별 자료 관리 방식을 확인하고, 기존 제안(J)·수주(P) 번호를 이어받아 <b>프로젝트 코드 규칙(P·J·R·CS)</b>과 분류 체계를 설계</li>
-          <li>AI로 파일 수십만여 건을 자동 분류해 새 통합 저장소로 이관</li>
+          <li>AI로 파일 수십만 건을 자동 분류해 새 통합 저장소로 이관</li>
           <li>분류 규칙을 사내 AI 활용 커뮤니티에 공지해, 전 직원이 같은 기준으로 업로드하는 방식 정착</li>
           <li>사내 NAS Docker에 배포, 이후 RAG 검색을 AWS ECS Fargate로 이관</li>
         </ul>
         <div class="result">
-          <div><strong>30만+</strong><span>검색 가능한 파일</span></div>
-          <div><strong>0.21s</strong><span>검색 응답</span></div>
+          <div><strong>7만+</strong><span>검색 가능한 파일</span></div>
+          <div><strong>6 → 1</strong><span>하나로 합친 NAS</span></div>
         </div>
         <div class="stackline">FastAPI / SQLite / RAG / Docker<br>Synology&nbsp;DSM&nbsp;API / AWS&nbsp;ECS&nbsp;Fargate / GitHub&nbsp;Actions</div>
       </div>
@@ -784,7 +784,7 @@ p,li,small,figcaption,.try,.post b{text-wrap:pretty}
           <li>대표 포트폴리오를 해시태그·대표 이미지와 함께 DB로 정리</li>
           <li>회사 표준 템플릿에 사례 슬라이드를 자동 삽입</li>
           <li>글상자 폭을 실측해 넘치는 글자를 두 단계로 자동 축소</li>
-          <li>번역 결과를 캐싱해 영·중·일 판을 자동 생성</li>
+          <li>번역 결과를 캐싱해 영문·중문·일문 소개서를 자동 생성</li>
         </ul>
         <div class="result">
           <div><strong>1 click</strong><span>선택에서 완성본까지</span></div>
@@ -818,7 +818,7 @@ p,li,small,figcaption,.try,.post b{text-wrap:pretty}
         </ul>
         <div class="result">
           <div><strong>3 → 1</strong><span>흩어진 원천 자료</span></div>
-          <div><strong>0.9</strong><span>이름만 있는 행 자동 연결 기준</span></div>
+          <div><strong>0.9 이상</strong><span>이름 유사도가 이 이상이고 후보가 1건일 때만 자동 연결</span></div>
         </div>
         <div class="stackline">FastAPI / SQLite / Vanilla JS / Docker&nbsp;(NAS)</div>
       </div>
@@ -841,13 +841,13 @@ p,li,small,figcaption,.try,.post b{text-wrap:pretty}
       <div class="proj-text">
         <p class="lead">채널별(메일·전화)로 파편화된 고객 문의 때문에 진행 상황을 추적할 수 없던 문제를 풀고자 했습니다. 현업(영업팀)의 요구사항을 명확히 정의해 <b>업무 프로세스를 표준화</b>했고, 흩어져 있던 유입 채널을 단일 파이프라인으로 통합해 업무 가시성을 확보했습니다.</p>
         <ul class="did">
-          <li>문의 → 견적 → 협의 → 수주 파이프라인과 그룹웨어 로그인·메일 알림</li>
+          <li>홈페이지 문의를 딜로 전환하는 파이프라인 보드와 그룹웨어 로그인·메일 알림</li>
           <li>스키마 드리프트로 쌓인 불필요 데이터를 찾아 정리</li>
           <li>Dual-Read/Write 패턴을 활용한 데이터 <b>무중단 마이그레이션</b></li>
           <li>외부 연동 API의 보안 취약점을 개선하기 위해 허용 오리진(Origin) 제한 및 인증 메커니즘 구축</li>
         </ul>
         <div class="result">
-          <div><strong>4단계</strong><span>파이프라인</span></div>
+          <div><strong>무중단</strong><span>DB 스키마 전환</span></div>
           <div><strong>1 codebase</strong><span>데모 · 실서비스 분기</span></div>
         </div>
         <div class="stackline">React&nbsp;19 / TypeScript / Supabase&nbsp;(PostgreSQL,&nbsp;RLS)&nbsp;/ Vercel</div>
@@ -871,13 +871,13 @@ p,li,small,figcaption,.try,.post b{text-wrap:pretty}
       <div class="proj-text">
         <p class="lead">요청이 오기 전에 총무팀을 먼저 찾아가 보니, 협력사 평가는 담당자의 기억에 의존하고 있었고 계약 만료는 날짜가 지난 뒤에야 인지하는 등 <b>운영 리스크가 크다고 판단</b>했습니다. 이를 해결하기 위해 현업의 페인 포인트를 반영한 협력사 통합 관리 시스템을 <span class="nw">설계·구축했습니다</span>.</p>
         <ul class="did">
-          <li>품질·납기·단가·대응 4개 항목으로 평가 등급 자동 산정</li>
+          <li>평가 항목별 점수로 협력사 등급 자동 산정</li>
           <li>계약 만료 D-30 알림과 비용 현황 대시보드</li>
-          <li>회귀 테스트 16개를 작성한 뒤 NAS Docker에 배포</li>
+          <li>Vitest 테스트 16개를 작성한 뒤 NAS Docker에 배포</li>
         </ul>
         <div class="result">
           <div><strong>D-30</strong><span>만료 자동 알림</span></div>
-          <div><strong>16</strong><span>회귀 테스트</span></div>
+          <div><strong>16</strong><span>Vitest 테스트</span></div>
         </div>
         <div class="stackline">React / Node.js / PostgreSQL / Docker / Vitest</div>
       </div>
@@ -908,7 +908,7 @@ p,li,small,figcaption,.try,.post b{text-wrap:pretty}
           <li>Blender 안에서 자연어 명령으로 객체(Object)를 제어하는 기능 추가(v0.4)</li>
         </ul>
         <div class="result">
-          <div><strong>1 → 2</strong><span>모델 하나에서 도면과 렌더를 함께 출력</span></div>
+          <div><strong>SVG · DXF</strong><span>같은 모델에서 도면과 렌더 출력</span></div>
           <div><strong>644 지점</strong><span>동선 자동 검사 · 충돌 0건</span></div>
         </div>
         <div class="stackline">Blender Python Add-on / glTF / three.js</div>
@@ -939,7 +939,7 @@ p,li,small,figcaption,.try,.post b{text-wrap:pretty}
       <div class="axes">
         <div><h4>커뮤니티 운영 체계 · 데이터 표준화</h4><ul>
           <li><b>커뮤니티 인프라 구축과 가이드라인 정립</b> 사내 협업툴에 AI 지식 공유 게시판을 신설하고, 핵심 해시태그 5개 분류 체계와 중복 게시 방지 정책을 세워 데이터 노이즈를 줄였습니다.</li>
-          <li><b>참여 보상과 온보딩 체계 설계</b> 월간 최다 추천자와 격월 발표자 보상 제도로 참여 동기를 만들고, AI 활용 난이도를 4단계로 나눠 초기 진입 장벽을 낮췄습니다.</li></ul></div>
+          <li><b>참여 보상과 온보딩 체계 설계</b> 월간 최다 추천 게시글 작성자와 격월 발표자 보상 제도로 참여 동기를 만들고, AI 활용 난이도를 4단계로 나눠 초기 진입 장벽을 낮췄습니다.</li></ul></div>
         <div><h4>조직 거버넌스 · 탑다운 확산</h4><ul>
           <li><b>탑다운 거버넌스 기반 확산</b> 일반 직원 중심 확산의 한계를 넘기 위해 그룹장 참여를 운영 규칙에 명문화해 조직의 실행력을 확보했습니다.</li>
           <li><b>전사 싱크업과 프로세스 공지</b> 주간회의에 고정 AI 안건을 올려 부서 간 활용 현황을 맞추고, 전사 NAS 분류 규칙 같은 표준화 가이드를 커뮤니티로 전파했습니다.</li></ul></div>
