@@ -25,9 +25,3 @@ img/              렌더 이미지
 python3 -m http.server 8000
 # http://localhost:8000
 ```
-
-## GitHub Pages 배포
-
-1. 이 폴더를 저장소 루트로 푸시합니다.
-2. 저장소 Settings → Pages → Source를 `Deploy from a branch`, Branch를 `main` / `/ (root)`로 지정합니다.
-3. 1~2분 뒤 `https://<아이디>.github.io/<저장소>/`에서 열립니다. 저장소 이름을 `<아이디>.github.io`로 만들면 주소가 `https://<아이디>.github.io/`가 됩니다.
